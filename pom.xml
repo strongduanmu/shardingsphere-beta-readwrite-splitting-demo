@@ -46,6 +46,7 @@
 			<groupId>org.apache.shardingsphere</groupId>
 			<artifactId>shardingsphere-jdbc-core</artifactId>
 			<version>5.0.0-beta</version>
+			<!--<version>5.0.0</version>-->
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

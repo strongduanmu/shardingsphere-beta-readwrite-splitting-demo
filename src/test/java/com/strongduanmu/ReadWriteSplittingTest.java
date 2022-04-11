@@ -1,7 +1,7 @@
 package com.strongduanmu;
 
 import com.strongduanmu.mapper.intlbiz.UserMapper;
-import com.strongduanmu.mapper.mqiyiauth.BookMapper;
+import com.strongduanmu.mapper.qiyiauth.BookMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

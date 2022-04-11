@@ -1,4 +1,4 @@
-package com.strongduanmu.mapper.mqiyiauth;
+package com.strongduanmu.mapper.qiyiauth;
 
 import com.strongduanmu.domain.Book;
 import org.springframework.stereotype.Repository;

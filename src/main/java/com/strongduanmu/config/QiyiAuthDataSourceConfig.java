@@ -29,7 +29,7 @@ import java.util.Properties;
  * Qiyi auth datasource config.
  */
 @Configuration
-@MapperScan(basePackages = {"com.strongduanmu.mapper.mqiyiauth"}, sqlSessionFactoryRef = "mQiyiAuthSqlSessionFactory")
+@MapperScan(basePackages = {"com.strongduanmu.mapper.qiyiauth"}, sqlSessionFactoryRef = "qiyiAuthSqlSessionFactory")
 public class QiyiAuthDataSourceConfig {
 
     @Bean(name = "mQiyiAuthDataSource")
@@ -44,7 +44,7 @@ public class QiyiAuthDataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "mQiyiAuthSqlSessionFactory")
+    @Bean(name = "qiyiAuthSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("qiyiAuthDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
@@ -52,13 +52,13 @@ public class QiyiAuthDataSourceConfig {
         return bean.getObject();
     }
 
-    @Bean(name = "mQiyiAuthTransactionManager")
+    @Bean(name = "qiyiAuthTransactionManager")
     public DataSourceTransactionManager transactionManager(@Qualifier("qiyiAuthDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(name = "mQiyiAuthSqlSessionTemplate")
-    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("mQiyiAuthSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+    @Bean(name = "qiyiAuthSqlSessionTemplate")
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("qiyiAuthSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
     

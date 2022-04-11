@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.strongduanmu.mapper.mqiyiauth.BookMapper">
+<mapper namespace="com.strongduanmu.mapper.qiyiauth.BookMapper">
     <resultMap id="BaseResultMap" type="com.strongduanmu.domain.Book">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="author" jdbcType="VARCHAR" property="author"/>
