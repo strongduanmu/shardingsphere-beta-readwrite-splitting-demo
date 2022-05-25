@@ -2,6 +2,7 @@ package com.strongduanmu.mapper.qiyiauth;
 
 import com.strongduanmu.domain.Book;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,4 +18,8 @@ public interface BookMapper {
     List<Book> selectAll();
     
     int updateByPrimaryKey(Book record);
+    
+    int selectLastInsertId();
+    
+    Long replace(Book record);
 }

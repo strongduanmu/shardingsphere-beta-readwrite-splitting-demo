@@ -1,5 +1,6 @@
 package com.strongduanmu;
 
+import com.strongduanmu.domain.Book;
 import com.strongduanmu.mapper.intlbiz.UserMapper;
 import com.strongduanmu.mapper.qiyiauth.BookMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -48,5 +51,26 @@ public class ReadWriteSplittingTest {
         t1.start();
         t2.start();
         Thread.currentThread().join();
+    }
+    
+    @Test
+    public void testSelectLastInsertId() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(bookMapper.selectLastInsertId());
+        }
+    }
+    
+    @Test
+    public void testReplace() {
+        for (int i = 0; i < 10; i++) {
+            Book book = new Book();
+            book.setAuthor("author" + i);
+            book.setName("name" + i);
+            book.setPrice(100L + i);
+            book.setCreatetime(new Date());
+            book.setDescription("description" + i);
+            bookMapper.replace(book);
+            System.out.println(book.getId());
+        }
     }
 }

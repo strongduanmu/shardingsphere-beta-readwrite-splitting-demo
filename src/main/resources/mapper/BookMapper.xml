@@ -38,4 +38,16 @@
         select id, author, name, price, createTime, description
         from Book
     </select>
+
+    <select id="selectLastInsertId" resultType="integer">
+        SELECT LAST_INSERT_ID() AS id
+    </select>
+
+    <insert id="replace" parameterType="com.strongduanmu.domain.Book">
+        REPLACE INTO Book (author, name, price, createTime, description)
+        VALUES (#{author,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR})
+        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+    </insert>
 </mapper>

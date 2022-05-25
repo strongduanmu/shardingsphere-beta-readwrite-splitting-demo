@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 public final class Book {
     
-    private Integer id;
+    private Long id;
     
     private String author;
     
